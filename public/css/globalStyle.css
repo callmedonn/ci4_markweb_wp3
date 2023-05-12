@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
+
+:root {
+  --primary: #226cff;
+  --white: #ffffff;
+  --black: #3d3d3d;
+  --blueOpacity: #e9effd;
+  --gray: #f5f6f8;
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+  color: var(--black);
+}
+
+/* Style Button Start */
+.btn-custom-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+}
+.btn-custom-green {
+  background-color: #83764f;
+  color: var(--white);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #83764f;
+  transition: 0.3s;
+}
+.btn-custom-green-cst {
+  background-color: #83764f;
+  color: var(--white);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #83764f;
+  transition: 0.3s;
+}
+.btn-custom-green-cst:hover {
+  background-color: transparent;
+}
+.btn-custom-disabled {
+  color: rgb(174, 174, 174);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgb(170, 170, 170);
+}
+
+.btn-custom-primary:hover {
+  background-color: white;
+  color: var(--primary);
+}
+
+.btn-custom-white {
+  background-color: var(--white);
+  color: var(--primary);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  border: 1px solid var(--white);
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn-custom-white:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-custom-secondary {
+  background-color: var(--white);
+  color: var(--primary);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn-custom-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+.btn-custom-danger {
+  background-color: red;
+  color: var(--white);
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+  border: 1px solid red;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn-custom-danger:hover {
+  background-color: transparent;
+  color: var(--white);
+}
+/* Style Button End */
+
+/* Navbar Start */
+.navbar-bg-custom {
+  background-color: var(--white);
+}
+
+#navbarNav p {
+  color: var(--primary);
+}
+
+nav {
+  height: 80px;
+}
+/* Navbar End */
+
+/* Jumbotron Homepage Start */
+.jumbotron-homepage {
+  background-color: var(--primary);
+  margin-top: 80px;
+}
+
+.jumbotron-homepage {
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.jumbotron-homepage h1,
+.jumbotron-homepage p,
+.jumbotron-homepage a {
+  color: white;
+}
+/* Jumbotron Homepage End */
+
+/* Section Start */
+.title-section {
+  color: var(--primary);
+}
+
+.card-custom-sc-6 {
+  height: 400px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.sc-cst {
+  background-color: var(--blueOpacity);
+  height: 80%;
+}
+
+.sub-title-sc {
+  background-color: white;
+  height: 20%;
+}
+/* Section End */
+
+/* Section 2 Start */
+.section-2 h6 {
+  color: var(--primary);
+}
+/* Section 2 End */
+
+/* Section 3 Start */
+.cnt-sc-3 {
+  width: 30%;
+  height: 700px;
+  background-color: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.074);
+  border-radius: 20px;
+}
+
+section.section-3 h2 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+section.section-3 .ul-sc-3 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+section.section-3 .ul-sc-3 li {
+  margin-bottom: 20px;
+}
+/* Section 3 End */
+
+/* Section 4 Start */
+.jumbotron-consultant {
+  background-color: var(--gray);
+}
+.cl-prm {
+  color: var(--primary);
+}
+/* Section 4 End */
+
+/* Footer Start */
+footer {
+  background-color: rgb(255, 255, 255);
+  height: 200px;
+  width: 100%;
+  margin-top: 100px;
+  box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.1);
+}
+
+footer .container {
+  height: 100%;
+}
+/* Footer End */
+
+/* Search Templates Start */
+.search-template {
+  background-color: var(--white);
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.btn-search-tem {
+  background-color: var(--primary);
+  width: 150px;
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+.btn-search-tem:hover {
+  background-color: var(--blueOpacity);
+}
+
+.btn-search-tem:hover p {
+  color: var(--primary);
+}
+
+.inpt-search {
+  outline: none;
+  border: none;
+  width: 60%;
+  background-color: transparent;
+}
+/* Search Templates End */
+
+/* Detail Template Start */
+.sc-detail {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sc-detail .cdix-1 {
+  height: 500px;
+}
+.sc-detail .cdix-2 {
+  height: 500px;
+}
+.sc-detail .cdixx {
+  margin-top: 150px;
+}
+/* Detail Template End */
+
+/* Cart Start */
+.kxx {
+  margin-top: 150px;
+}
+.kxx .container {
+  background-color: var(--primary);
+  height: 200px;
+  align-items: center;
+  display: flex;
+  border-radius: 20px;
+}
+.kxx .container p,
+.kxx .container h3 {
+  color: var(--white);
+}
+section .goto {
+  border-radius: 20px;
+  height: 100px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+section .gotom {
+  border-radius: 20px;
+  height: 150px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+section .gotocstm {
+  border-radius: 20px;
+  height: 100px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+section .gotocstmxx {
+  border-radius: 20px;
+  height: 200px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+section .gotocstm .count {
+  color: #00f026;
+  font-weight: 500;
+}
+/* Cart End */
+
+/* Profile Start */
+.inpt-prof {
+  width: 200px;
+  font-size: 14px;
+  border: 1.5px solid #817b7b46;
+  border-radius: 10px;
+}
+.title-inpt {
+  width: 100px;
+}
+
+.history-order .container {
+  background-color: wheat;
+  margin-top: 100px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(0, 0, 0, 0.078);
+  background-color: var(--white);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.174);
+}
+.history-order .container h4 {
+  font-weight: 600;
+}
+
+.history-order .card-download {
+  background-color: var(--primary);
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.history-order p {
+  color: var(--white);
+}
+.prof-subs {
+  background-color: white;
+  height: 300px;
+}
+/* Profile End */
