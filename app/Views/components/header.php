@@ -7,18 +7,20 @@
  <nav class="navbar navbar-expand-lg navbar-light shadow-sm navbar-bg-custom fixed-top">
       <div class="container d-flex justify-content-between">
         <div class="logo">
-          <img src="<?= base_url('images/logo_landscape.png') ?>" alt="logo" width="120" />
+          <a href="<?php echo base_url('/'); ?>">
+            <img src="<?= base_url('images/logo_landscape.png') ?>" alt="logo" width="120" />
+        </a>
         </div>
         <div id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link fw-bold" aria-current="page" href="#">Home</a>
+              <a class="nav-link fw-bold" aria-current="page" href="<?php echo base_url('/'); ?>">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold" href="#">Templates</a>
+              <a class="nav-link fw-bold" href="<?php echo base_url('templates'); ?>">Templates</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold" href="#">Harga</a>
+              <a class="nav-link fw-bold" href="<?php echo base_url('price'); ?>">Harga</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tentang</a>

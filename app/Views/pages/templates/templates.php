@@ -40,7 +40,14 @@
               <div class="col-md-4">
                 <div class="card-custom-sc-6">
                   <div class="p-10 d-flex justify-content-center sc-cst">
-                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%"></div>
+                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%">    <div class="overlay">
+            <button class="me-3 btn-view" >
+              <img src="<?= base_url('images/eye.svg') ?>"  alt="eye" width="30">
+            </button>
+            <button  class="btn-eye">
+              <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
+            </button>
+            </div></div>
                   <div class="p-4 sub-title-sc">
                   <div class="d-flex justify-content-between">
                     <h5>Landing Page</h5>
@@ -52,7 +59,14 @@
               <div class="col-md-4">
                 <div class="card-custom-sc-6">
                   <div class="p-10 d-flex justify-content-center sc-cst">
-                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%"></div>
+                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%">    <div class="overlay">
+            <button class="me-3 btn-view" >
+              <img src="<?= base_url('images/eye.svg') ?>"  alt="eye" width="30">
+            </button>
+            <button  class="btn-eye">
+              <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
+            </button>
+            </div></div>
                   <div class="p-4 sub-title-sc">
                   <div class="d-flex justify-content-between">
                     <h5>Landing Page</h5>
@@ -64,7 +78,14 @@
               <div class="col-md-4">
                 <div class="card-custom-sc-6">
                   <div class="p-10 d-flex justify-content-center sc-cst">
-                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%"></div>
+                  <img src="<?= base_url('images/img_web.png') ?>" alt="img_web" width="80%">    <div class="overlay">
+            <button class="me-3 btn-view" >
+              <img src="<?= base_url('images/eye.svg') ?>"  alt="eye" width="30">
+            </button>
+            <button  class="btn-eye">
+              <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
+            </button>
+            </div></div>
                   <div class="p-4 sub-title-sc">
                   <div class="d-flex justify-content-between">
                     <h5>Landing Page</h5>
