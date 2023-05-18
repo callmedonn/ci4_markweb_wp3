@@ -67,7 +67,7 @@ class UserController extends ResourceController
             'fullname' => 'required',
             'password' => 'required',
             'email' => 'required',
-            'role' => 'required'
+            // 'role' => 'required'
         ];
 
         if (!$this->validate($rules)) {
@@ -89,7 +89,7 @@ class UserController extends ResourceController
             'fullname' => $fullname,
             'password' => $hashedPassword,
             'email' => $email,
-            'role' => $role
+            'role' => 'customer'
         ]);
 
         $response = [
@@ -97,7 +97,8 @@ class UserController extends ResourceController
             'message' => 'User created successfully'
         ];
 
-        return $this->respond($response, ResponseInterface::HTTP_CREATED);
+        // return $this->respond($response, ResponseInterface::HTTP_CREATED);
+        return view('pages/auth/login');
     }
 
 

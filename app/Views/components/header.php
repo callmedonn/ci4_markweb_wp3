@@ -32,18 +32,21 @@
           </ul>
         </div>
         <div id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item d-flex align-items-center me-3">
-              <button class="klik-cart-button" style="background-color: transparent; outline: none; border:none;">
-                <img src="<?= base_url('images/cart.png') ?>" alt="cart" width="25" />
-              </button>
-              <p class="m-0 p-0 fw-bold" id="number-cart"></p>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <button class="btn-custom-primary">Masuk</button>
-            </li>
-            </li>
-          </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item d-flex align-items-center me-3">
+                <button class="klik-cart-button" style="background-color: transparent; outline: none; border:none;">
+                  <img src="<?= base_url('images/cart.png') ?>" alt="cart" width="25" />
+                </button>
+                <p class="m-0 p-0 fw-bold" id="number-cart"></p>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a href="<?php echo base_url('auth/login'); ?>">
+                  <button class="btn-custom-primary">Masuk</button>
+              </a>
+              </li>
+              </li>
+            </ul>
+            
         </div>
       </div>
     </nav>

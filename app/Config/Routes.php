@@ -57,6 +57,10 @@ $routes->get('order/get', 'OrderController::index');
 $routes->get('order/get/(:num)', 'OrderController::show/$1');
 $routes->put('order/(:num)', 'OrderController::update/$1');
 
+// Auth
+$routes->get('auth/login', 'AuthController::index');
+$routes->get('auth/register', 'AuthController::register');
+
 
 /*
  * --------------------------------------------------------------------

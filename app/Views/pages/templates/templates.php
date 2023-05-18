@@ -52,9 +52,9 @@
                 <img src="<?= base_url('images/eye.svg') ?>"   alt="eye" width="30">
             </a>
                   </button>
-                  <button  class="btn-eye">
-                    <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
-                  </button>
+                  <button class="cart-button btn-eye" data-id="<?= $template['id'] ?>">
+              <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
+            </button>
                   </div>
                   </div>
                     <div class="p-4 sub-title-sc">
@@ -72,6 +72,35 @@
         </section>
         <!-- Section 1 End -->
 	  <?= $this->include('components/footer') ?>
-  
+    <script>
+    // Menangkap klik tombol dengan class "cart-button"
+    document.querySelectorAll('.cart-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // Ambil ID dari atribut data-id
+            const templateId = button.dataset.id;
+
+            // Dapatkan array IDs dari localStorage
+            let ids = JSON.parse(localStorage.getItem('templateIds')) || [];
+
+            // Tambahkan templateId ke dalam array IDs
+            ids.push(templateId);
+
+            // Simpan array IDs kembali ke localStorage
+            localStorage.setItem('templateIds', JSON.stringify(ids));
+
+            swal({
+            title: "Success Add Cart!",
+            text: "You clicked the button!",
+            icon: "success",
+          });
+
+          setTimeout(() => {
+            // Arahkan pengguna ke halaman cart dengan menggunakan ID template
+            window.location.href = '<?= base_url('/templates') ?>'
+          }, 1000);
+
+        });
+    });
+</script>
 </body>
 </html>
