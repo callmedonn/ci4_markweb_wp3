@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contoh Page</title>
+<title>MarkWeb - No Service</title>
   <link rel="stylesheet" href="assets/css/globalStyle.css">
 
    <!-- Framework bootstrap 5 -->

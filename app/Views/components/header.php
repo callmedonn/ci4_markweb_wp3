@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="<?= base_url('images/fav.png') ?>">
 </head>
 <body>
  <!-- Navbar Start -->
@@ -33,8 +34,10 @@
         <div id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item d-flex align-items-center me-3">
-              <img src="<?= base_url('images/cart.png') ?>" alt="cart" width="25" />
-              <p class="m-0 p-0 fw-bold">(0)</p>
+              <button class="klik-cart-button" style="background-color: transparent; outline: none; border:none;">
+                <img src="<?= base_url('images/cart.png') ?>" alt="cart" width="25" />
+              </button>
+              <p class="m-0 p-0 fw-bold" id="number-cart"></p>
             </li>
             <li class="nav-item d-flex align-items-center">
               <button class="btn-custom-primary">Masuk</button>
@@ -44,4 +47,20 @@
         </div>
       </div>
     </nav>
+
+    <script>
+      // Mendapatkan elemen dengan id "number-cart" dan mengambil kontennya
+      const getCart = document.querySelector("#number-cart");
+      const cart = JSON.parse(localStorage.getItem("templateIds"));
+
+      getCart.innerHTML = `( ${cart.length} )`;
+
+          // Menangkap klik tombol dengan class "cart-button"
+    document.querySelectorAll('.klik-cart-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // Arahkan pengguna ke halaman cart dengan menggunakan ID template
+            window.location.href = '<?= base_url('/templates/cart?ids=') ?>' + cart
+        });
+    });
+    </script>
     <!-- Navbar End -->

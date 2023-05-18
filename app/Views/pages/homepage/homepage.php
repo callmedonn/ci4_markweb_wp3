@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contoh Page</title>
+	<title>MarkWeb - Homepage</title>
   <link rel="stylesheet" href="assets/css/globalStyle.css">
 
    <!-- Framework bootstrap 5 -->
@@ -69,48 +69,31 @@
         <h6 class="title-section">Template Website</h6>
         <h4>Temukan Template Website Terbaik untuk Bisnis Anda</h4>
         <div class="row mt-4">
+        <?php foreach ($templates as $template) : ?>
           <div class="col-md-6" >
             <div class="card-custom-sc-6">
               <div class="p-10 d-flex justify-content-center sc-cst">
-              <img src="<?= base_url('images/img_web.png') ?>"  alt="img_web" width="60%"> 
+              <img src="<?= base_url('uploads/' . $template['image']) ?>"  alt="img_web" width="60%"> 
             <div class="overlay">
             <button class="me-3 btn-view" >
-              <img src="<?= base_url('images/eye.svg') ?>"  alt="eye" width="30">
+              <a href="<?= base_url('templates/' . $template['id']) ?>">
+                <img src="<?= base_url('images/eye.svg') ?>"   alt="eye" width="30">
+            </a>
             </button>
-            <button  class="btn-eye">
+            <button class="cart-button btn-eye" data-id="<?= $template['id'] ?>">
               <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
             </button>
             </div>
             </div>
               <div class="p-4 sub-title-sc">
               <div class="d-flex justify-content-between">
-                <h5>Landing Page</h5>
-                <h6>Free</h6>
+                <h5><?= $template['title']; ?></h5>
+                <h6>Rp. <?= $template['price']; ?></h6>
               </div>
               </div>
             </div>
           </div>  
-          <div class="col-md-6">
-            <div class="card-custom-sc-6">
-              <div class="p-10 d-flex justify-content-center sc-cst">
-              <img src="<?= base_url('images/img_web.png') ?>"  alt="img_web" width="60%">
-              <div class="overlay">
-                <button class="me-3 btn-view" >
-                  <img src="<?= base_url('images/eye.svg') ?>"  alt="eye" width="30">
-                </button>
-                <button  class="btn-eye">
-                  <img src="<?= base_url('images/cart.svg') ?>"  alt="cart" width="30">
-                </button>
-                </div>
-            </div>
-              <div class="p-4 sub-title-sc">
-              <div class="d-flex justify-content-between">
-                <h5>Landing Page</h5>
-                <h6>Free</h6>
-              </div>
-              </div>
-            </div>
-          </div>  
+        <?php endforeach; ?> 
           </div>
         </div>
       </div>
@@ -309,5 +292,27 @@
 
 
 	<?= $this->include('components/footer') ?>
+
+  <script>
+    // Menangkap klik tombol dengan class "cart-button"
+    document.querySelectorAll('.cart-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // Ambil ID dari atribut data-id
+            const templateId = button.dataset.id;
+
+            // Dapatkan array IDs dari localStorage
+            let ids = JSON.parse(localStorage.getItem('templateIds')) || [];
+
+            // Tambahkan templateId ke dalam array IDs
+            ids.push(templateId);
+
+            // Simpan array IDs kembali ke localStorage
+            localStorage.setItem('templateIds', JSON.stringify(ids));
+
+            // Arahkan pengguna ke halaman cart dengan menggunakan ID template
+            window.location.href = '<?= base_url('/') ?>'
+        });
+    });
+</script>
 </body>
 </html>

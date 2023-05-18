@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contoh Page</title>
+<title>MarkWeb - Price</title>
   <link rel="stylesheet" href="assets/css/globalStyle.css">
 
    <!-- Framework bootstrap 5 -->
@@ -25,7 +25,7 @@
           <p class="text-center m-0 p-0">Landing page</p>
           <h2 class="text-center mt-4 mb-4">Rp. 600.000</h2>
           <div class="text-center">
-            <button class="btn-custom-secondary">Pilih Paket</button>
+            <a class="btn-custom-secondary text-decoration-none" href="<?php echo base_url('/no-service'); ?>" >Pilih Paket</a>
           </div>
           <p class="mt-4 mb-4">
             Cocok untuk bisnis kecil atau individu yang ingin memiliki website sederhana dengan informasi dasar tentang produk atau layanan yang ditawarkan.
@@ -74,7 +74,7 @@
           <p class="text-center m-0 p-0">Company Profile / Komunitas</p>
           <h2 class="text-center mt-4 mb-4">Rp. 1.900.000</h2>
           <div class="text-center">
-            <button class="btn-custom-secondary">Pilih Paket</button>
+            <a class="btn-custom-secondary text-decoration-none" href="<?php echo base_url('/no-service'); ?>" >Pilih Paket</a>
           </div>
           <p class="mt-4 mb-4">
             Cocok untuk perusahaan atau bisnis yang membutuhkan website yang kompleks dengan informasi lebih detail tentang produk atau layanan.
@@ -123,7 +123,7 @@
           <p class="text-center m-0 p-0">Toko Online / Blog</p>
           <h2 class="text-center mt-4 mb-4">Rp. 2.500.000</h2>
           <div class="text-center">
-            <button class="btn-custom-secondary">Pilih Paket</button>
+            <a class="btn-custom-secondary text-decoration-none" href="<?php echo base_url('/no-service'); ?>" >Pilih Paket</a>
           </div>
           <p class="mt-4 mb-4">
             Cocok untuk bisnis yang ingin menjual produk secara online atau blog dengan berbagai macam artikel seperti website berita.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contoh Page</title>
+<title>MarkWeb - Cart</title>
   <link rel="stylesheet" href="assets/css/globalStyle.css">
 
    <!-- Framework bootstrap 5 -->
@@ -14,14 +14,20 @@
 
     <!-- Section Checkout Start -->
     <section class="kxx">
-      <div class="container mt-3">
-        <img src="<?= base_url('images/img_web.png') ?>" alt="imgwe" width="200" />
+      <?php if (empty($templates)) : ?>
+                  <p>Tidak ditemukan hasil.</p>
+              <?php else : ?>
+                  <?php foreach ($templates as $template) : ?>
+                    <div class="container mt-3">
+        <img src="<?= base_url('uploads/' . $template['image']) ?>" alt="imgwe" width="200" />
         <div>
-          <h3 class="ms-5">Landing Page</h3>
-          <p class="ms-5">Rp. 200.000</p>
+          <h3 class="ms-5"><?= $template['title']; ?></h3>
+          <p class="ms-5">Rp. <?= $template['price']; ?></p>
           <button class="btn-custom-danger ms-5">Hapus</button>
         </div>
       </div>
+        <?php endforeach; ?> 
+              <?php endif; ?>
     </section>
     <!-- Section Checkout End -->
 

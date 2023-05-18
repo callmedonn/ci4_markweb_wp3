@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contoh Page</title>
+<title>MarkWeb - Detail</title>
   <link rel="stylesheet" href="assets/css/globalStyle.css">
 
    <!-- Framework bootstrap 5 -->
@@ -17,21 +17,20 @@
       <div class="container sc-detail">
         <div class="row cdixx">
           <div class="col-md-6 d-flex align-items-center cdix-1">
-            <img   src="<?= base_url('images/img_web.png') ?>" alt="imgweb" width="100%" />
+            <img  src="<?= base_url('uploads/' . $template['image']) ?>" alt="imgweb" width="100%" />
           </div>
           <div class="col-md-6 p-4 d-flex justify-content-between flex-column cdix-2">
             <div>
-              <h3>Landing Page</h3>
+              <h3><?= $template['title']; ?></h3>
               <p class="p-0 m-0 fw-bold">Description :</p>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <p><?= $template['description']; ?></p>
               <p class="p-0 m-0 fw-bold">Technology :</p>
               <ul>
-                <li>HTML 5</li>
-                <li>CSS</li>
+                <li><?= $template['stacks']; ?></li>
               </ul>
             </div>
             <div class="d-flex justify-content-between">
-              <p class="fw-bold">Rp. 200.000</p>
+              <p class="fw-bold">Rp. <?= $template['price']; ?></p>
               <div>
                 <button class="btn-custom-primary me-2">Preview</button>
                 <button class="btn-custom-primary">Beli</button>

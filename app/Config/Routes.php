@@ -34,6 +34,30 @@ $routes->get('/templates', 'Templates::index');
 $routes->get('/price', 'Price::index');
 $routes->get('/no-service', 'NoService::index');
 
+/**
+ * API
+ */
+// User
+$routes->get('user', 'UserController::index');
+$routes->post('user', 'UserController::create');
+$routes->get('user/(:num)', 'UserController::show/$1');
+
+// Template
+$routes->get('templates/get', 'TemplatesController::index');
+$routes->post('templates', 'TemplatesController::create');
+$routes->get('templates/(:num)', 'TemplatesController::show/$1');
+$routes->put('templates/(:num)', 'TemplatesController::update/$1');
+$routes->delete('templates/(:num)', 'TemplatesController::delete/$1');
+$routes->get('templates/latest', 'TemplatesController::getLatest');
+$routes->get('templates/cart', 'TemplatesController::getCart');
+
+// Order
+$routes->post('order', 'OrderController::create');
+$routes->get('order/get', 'OrderController::index');
+$routes->get('order/get/(:num)', 'OrderController::show/$1');
+$routes->put('order/(:num)', 'OrderController::update/$1');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
