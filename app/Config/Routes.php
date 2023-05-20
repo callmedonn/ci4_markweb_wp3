@@ -53,6 +53,7 @@ $routes->get('templates/cart', 'TemplatesController::getCart');
 
 // Order
 $routes->post('order', 'OrderController::create');
+$routes->post('order/image', 'OrderController::image');
 $routes->get('order/get', 'OrderController::index');
 $routes->get('order/get/(:num)', 'OrderController::show/$1');
 $routes->put('order/(:num)', 'OrderController::update/$1');
@@ -60,6 +61,13 @@ $routes->put('order/(:num)', 'OrderController::update/$1');
 // Auth
 $routes->get('auth/login', 'AuthController::index');
 $routes->get('auth/register', 'AuthController::register');
+$routes->post('login/process', 'AuthController::process');
+
+// Checkout
+$routes->get('templates/checkout', 'TemplatesController::getCheckout');
+
+// Profile
+$routes->get('profile', 'Profile::index');
 
 
 /*

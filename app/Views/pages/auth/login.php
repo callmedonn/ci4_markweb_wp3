@@ -71,9 +71,14 @@
 <div class="container d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh;">
 <div class="login-container ">
       <h2>Login</h2>
-      <form>
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required />
+      <?php if (!empty($message)): ?>
+        <div class="alert alert-danger" role="alert">
+  <?php echo $message; ?>
+</div>
+    <?php endif; ?>
+      <form method="post" action="<?php echo base_url('login/process'); ?>">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Login</button>
       </form>
       <p>Belum punya akun? <a href="<?php echo base_url('auth/register'); ?>">Daftar</a></p>

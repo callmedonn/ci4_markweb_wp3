@@ -24,9 +24,13 @@ class OrderController extends ResourceController
         $userModel = new UserModel();
         $templateModel = new TemplatesModel();
 
-        // Mengambil data order dari tabel order
-        $orders = $orderModel->findAll();
+                // Ambil parameter ID dari query string
+                $id_user = $this->request->getVar('id_user'); 
 
+        // Mengambil data order dari tabel order
+        $orders = $orderModel->where('id_user', $id_user)->findAll();
+
+        $templateOrder = array();
         // Loop melalui setiap order
         foreach ($orders as &$order) {
             // Mempopulate data id_user dari tabel user
@@ -39,14 +43,17 @@ class OrderController extends ResourceController
             foreach ($id_template as $id_template) {
                 $template = $templateModel->find($id_template);
                 if ($template) {
+                    $customTemplate = $template;
+                    $customTemplate['status'] = $order['status'];
                     $templateNames[] = $template; // Ganti dengan kolom yang sesuai dari tabel id_template
+                    $templateOrder[] = $customTemplate; // Ganti dengan kolom yang sesuai dari tabel id_template
                 }
             }
             $order['id_template'] = $templateNames; // Menggabungkan nama template menjadi string yang dipisahkan koma
         }
 
         // Kembalikan response dengan data order yang telah dipopulasi
-        return $this->respond($orders);
+        return $this->respond($templateOrder);
     }
 
 
@@ -118,15 +125,16 @@ class OrderController extends ResourceController
         $id_template = $this->request->getVar('id_template');
         $status = $this->request->getVar('status');
         $no_order = $this->request->getVar('no_order');
+        $total = $this->request->getVar('total');
 
         // Ambil file gambar yang diunggah
         $image = $this->request->getFile('image');
 
         // Validasi file gambar
-        if ($image->isValid() && !$image->hasMoved()) {
+        // if ($image->isValid() && !$image->hasMoved()) {
         // Pindahkan file ke direktori tujuan
-        $newName = $image->getRandomName();
-        $image->move(ROOTPATH . 'public/uploads', $newName);
+        // $newName = $image->getRandomName();
+        // $image->move(ROOTPATH . 'public/uploads', $newName);
 
         // Validasi data
         $validation = \Config\Services::validation();
@@ -134,6 +142,7 @@ class OrderController extends ResourceController
             'id_user' => 'required',
             'id_template' => 'required',
             // 'image' => 'required',
+            'total' => 'required',
             'status' => 'required',
             'no_order' => 'required'
         ]);
@@ -143,26 +152,27 @@ class OrderController extends ResourceController
         }
 
         // Ubah array $id_template menjadi string dengan pemisah koma
-        // $id_template = implode(',', $id_template);
+        $id_template = implode(',', json_decode($id_template)); 
 
         // Simpan order ke dalam database
         $data = [
             'id_user' => (int)$id_user,
             'id_template' => $id_template,
-            'image' => $newName,
+            // 'image' => $newName,
+            'total' => $total,
             'status' => $status,
             'no_order' => $no_order
         ];
 
-        $orderModel->insert($data);
+        $result = $orderModel->insert($data);
 
         // Kembalikan response 201 Created
-        return $this->respondCreated(['message' => 'Order created successfully']);
+        return view('pages/payment/payment', ['status' => $status, 'total' => $total, 'idOrder' => $result]);
 
-        } else {
-                // Tampilkan response gagal
-        return $this->fail('Failed to create order.');
-            } 
+        // } else {
+        //         // Tampilkan response gagal
+        // return $this->fail('Failed to create order.');
+        //     } 
 
     }
 
@@ -232,5 +242,24 @@ class OrderController extends ResourceController
     public function delete($id = null)
     {
         //
+    }
+
+    /**
+     * Image
+     */
+    public function image()
+    {
+        if ($this->request->getFile('image')->isValid()) {
+            $image = $this->request->getFile('image');
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $newName);
+    
+            // Mengupdate tabel 'order' dengan nama file yang baru
+            $id = $this->request->getVar('id');
+
+            $orderModel = new OrderModel();
+            $orderModel->update($id, ['image' => $newName]);
+        }
+        return view('pages/payment/successPayment');
     }
 }

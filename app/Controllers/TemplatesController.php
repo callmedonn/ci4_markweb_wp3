@@ -238,9 +238,55 @@ class TemplatesController extends ResourceController
         // Ambil data templates berdasarkan ID yang dikirimkan
         $templates = $model->whereIn('id', $idArr)->findAll();
 
-        // Kembalikan response dengan data templates yang sesuai
+        // Hitung total dari field 'price'
+        $total = 0;
+        foreach ($templates as $template) {
+            $total += $template['price'];
+        }
+
+        // Mendapatkan hasil id dalam $idArr
+        $resultIds = [];
+        foreach ($templates as $template) {
+            $resultIds[] = $template['id'];
+        }
+
+
+        // Kembalikan response dengan data templates dan total
+        return view('pages/cart/cart', ['templates' => $templates, 'total' => $total, 'resultIds' => $resultIds]);
+    }
+    /**
+     * getCheckout
+     */
+    public function getCheckout()
+    {
+        $model = $this->model;
+
+        // Ambil parameter ID dari query string
+        $ids = $this->request->getVar('ids'); 
+
+        // Pisahkan ID yang dikirimkan menjadi array
+        $idArr = explode(',', $ids);
+
+        // Ambil data templates berdasarkan ID yang dikirimkan
+        $templates = $model->whereIn('id', $idArr)->findAll();
+
+        // Hitung total dari field 'price'
+        $total = 0;
+        foreach ($templates as $template) {
+            $total += $template['price'];
+        }
         // return $this->respond($templates);
-        return view('pages/cart/cart', ['templates' => $templates]);
+
+                // Mendapatkan hasil id dalam $idArr
+                $resultIds = [];
+                foreach ($templates as $template) {
+                    $resultIds[] = $template['id'];
+                }
+        
+
+
+        // Kembalikan response dengan data templates dan total
+        return view('pages/checkout/checkout', ['templates' => $templates, 'total' => $total, 'resultIds' => $resultIds]);
     }
     
 }

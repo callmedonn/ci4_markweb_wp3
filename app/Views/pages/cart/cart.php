@@ -23,7 +23,7 @@
         <div>
           <h3 class="ms-5"><?= $template['title']; ?></h3>
           <p class="ms-5">Rp. <?= $template['price']; ?></p>
-          <button class="btn-custom-danger ms-5">Hapus</button>
+          <button class="btn-custom-danger ms-5" onclick="hapusItemCart( <?= $template['id']; ?>)">Hapus</button>
         </div>
       </div>
         <?php endforeach; ?> 
@@ -37,13 +37,64 @@
         <div></div>
         <div class="d-flex flex-row; align-items-center">
           <div class="me-5">
-            <h6>Total Pembelian (1)</h6>
-            <p>Rp. 200.000</p>
+            <h6 class="number-cart"></h6>
+            <p>Rp. <?= $total; ?></p>
           </div>
-          <button class="btn-custom-primary">Checkout</button>
+          <button class="btn-custom-primary" onclick="goCheckout(<?php echo htmlspecialchars(json_encode($resultIds)); ?>)">Checkout</button>
         </div>
       </div>
     </section>
+    <script>
+    // Mendapatkan elemen dengan id "number-cart" dan mengambil kontennya
+    const totalCart = document.querySelector(".number-cart");
+      const carts = JSON.parse(localStorage.getItem("templateIds"));
+      totalCart.innerHTML = `Total Pembelian ( ${carts.length} )`;
+
+function hapusItemCart(id) {
+  // Ambil data cart dari localstorage
+  var cart = localStorage.getItem('templateIds');
+
+  // Pastikan data cart tidak kosong
+  if (cart) {
+    // Ubah data cart menjadi array JavaScript
+    var cartArray = JSON.parse(cart);
+
+    // Cari indeks item dengan id yang sesuai dalam array cart
+    var index = cartArray.findIndex(function(item) {
+      return item === id.toString();
+    });
+    // Jika indeks item ditemukan, hapus item dari array
+    if (index !== -1) {
+      cartArray.splice(index, 1);
+
+      // Ubah kembali array cart menjadi string JSON
+      var updatedCart = JSON.stringify(cartArray);
+
+      // Simpan kembali data cart ke localstorage
+      localStorage.setItem('templateIds', updatedCart);
+            // Tampilkan pesan sukses atau lakukan tindakan lainnya
+            console.log('Item berhasil dihapus dari cart.');
+      swal({
+            title: "Success Hapus Cart!",
+            text: "You clicked the button!",
+            icon: "success",
+          }); 
+        setTimeout(() => {
+                // Refresh halaman
+                    // Arahkan pengguna ke halaman cart dengan menggunakan ID template
+                    window.location.href = '<?= base_url('/templates/cart?ids=') ?>' + cartArray
+        }, 1000);
+      
+    }
+  }
+}
+
+function goCheckout(array) {
+                      // Arahkan pengguna ke halaman cart dengan menggunakan ID template
+                      window.location.href = '<?= base_url('/templates/checkout?ids=') ?>' + array
+}
+</script>
+
     <!-- Section Checkout Go To End -->
 <?= $this->include('components/footer') ?>
 

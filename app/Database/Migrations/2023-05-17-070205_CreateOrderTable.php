@@ -12,6 +12,7 @@ class CreateOrderTable extends Migration
         $this->forge->addField([
             'id_user' => ['type' => 'INT'],
             'id_template' => ['type' => 'VARCHAR', 'constraint' => 500],
+            'total' => ['type' => 'DECIMAL', 'constraint' => '10'],
             'image' => ['type' => 'VARCHAR', 'constraint' => 255],
             'status' => ['type' => 'VARCHAR', 'constraint' => 255],
             'no_order' => ['type' => 'VARCHAR', 'constraint' => 255],

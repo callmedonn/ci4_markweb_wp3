@@ -12,7 +12,7 @@ class CreateTemplatesTable extends Migration
         $this->forge->addField([
             'title' => ['type' => 'VARCHAR', 'constraint' => 255],
             'description' => ['type' => 'TEXT'],
-            'price' => ['type' => 'DECIMAL', 'constraint' => '10,2'],
+            'price' => ['type' => 'DECIMAL', 'constraint' => '10'],
             'image' => ['type' => 'VARCHAR', 'constraint' => 255],
             'link_download' => ['type' => 'VARCHAR', 'constraint' => 255],
             'stacks' => ['type' => 'VARCHAR', 'constraint' => 255],

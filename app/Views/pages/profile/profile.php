@@ -16,18 +16,20 @@
       <div class="container">
         <div class="d-flex flex-column align-items-center justify-content-center mt-5">
           <img src="<?= base_url('images/profile.png') ?>" alt="profile" width="200" />
-          <h3 class="fw-bold mt-3">DONY MARSAHID</h3>
+          <h3 class="fw-bold mt-3"><?= session()->getFlashData('fullname') ?></h3>
+          <?php session()->keepFlashdata('fullname'); ?>
           <button class="btn-custom-green">Member</button>
         </div>
 
         <div>
           <div class="d-flex username align-items-center">
             <h6 class="me-3 title-inpt">Username</h6>
-            <div class="p-2 inpt-prof">donnymrshd</div>
+            <div class="p-2 inpt-prof"><?= session()->getFlashData('username') ?></div>
+            <?php session()->keepFlashdata('username'); ?>
           </div>
           <div class="d-flex email align-items-center mt-2">
             <h6 class="me-3 title-inpt">Email</h6>
-            <div class="p-2 inpt-prof">donnymrshd@gmail.com</div>
+            <div class="p-2 inpt-prof"><?= session()->getFlashData('email') ?></div>
           </div>
 
           <button class="btn-custom-primary mt-4">Ganti Password</button>
@@ -41,19 +43,29 @@
       <div class="container">
         <div class="box-history p-3">
           <h4 class="mb-4">Riwayat Pemesanan Template</h4>
-          <div class="card-download d-flex align-items-center">
+          <?php if (empty($templates)) : ?>
+                  <p>Tidak ditemukan hasil pencarian.</p>
+              <?php else : ?>
+                  <?php foreach ($templates as $template) : ?>
+                    <div class="card-download d-flex align-items-center">
             <img class="ms-3" src="<?= base_url('images/img_web.png') ?>" alt="imgweb" width="200" />
             <div class="d-flex justify-content-between flex-row ms-3" style="width: 100%">
               <div class="d-flex flex-column">
-                <p>12 Mei 2023</p>
-                <p class="fs-3 fw-bold">Landing Page</p>
-                <p class="fw-bold">Rp. 200.000</p>
+                <p class="fs-3 fw-bold"><?= $template['title'] ?></p>
+                <p class="fw-bold">Rp. <?= $template['price'] ?></p>
               </div>
               <div class="d-flex align-items-center me-4">
-                <button class="btn-custom-green-cst">Download</button>
+                <?php if ($template['status'] == 'success'): ?>
+                  <button class="btn-custom-green-cst">Download</button>
+
+<?php else: ?>
+<div></div>
+<?php endif; ?>
               </div>
             </div>
           </div>
+        <?php endforeach; ?> 
+              <?php endif; ?>
         </div>
       </div>
     </section>
@@ -72,6 +84,12 @@
       </div>
     </section>
     <!-- History Subscribe End -->
+    <section class="mt-5">
+      <div class="container d-flex justify-content-between">
+        <div></div>
+      <button class="btn-custom-primary">Logout</button>
+      </div>
+    </section>
 	<?= $this->include('components/footer') ?>
   
 </body>

@@ -40,9 +40,19 @@
                 <p class="m-0 p-0 fw-bold" id="number-cart"></p>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <a href="<?php echo base_url('auth/login'); ?>">
+              <?php if (session()->getFlashData('username')): ?>
+                <a href="<?php echo base_url('profile'); ?>">
+                  <img src="<?= base_url('images/profile.png') ?>" alt="profile" width="30" />
+              </a>
+<?php else: ?>
+  <a href="<?php echo base_url('auth/login'); ?>">
                   <button class="btn-custom-primary">Masuk</button>
               </a>
+<?php endif; ?>
+<?php session()->keepFlashdata('id'); ?>
+<?php session()->keepFlashdata('username'); ?>
+<?php session()->keepFlashdata('email'); ?>
+<?php session()->keepFlashdata('fullname'); ?>
               </li>
               </li>
             </ul>
