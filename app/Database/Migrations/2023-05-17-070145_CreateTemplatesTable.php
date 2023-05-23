@@ -14,6 +14,7 @@ class CreateTemplatesTable extends Migration
             'description' => ['type' => 'TEXT'],
             'price' => ['type' => 'DECIMAL', 'constraint' => '10'],
             'image' => ['type' => 'VARCHAR', 'constraint' => 255],
+            'url' => ['type' => 'VARCHAR', 'constraint' => 255],
             'link_download' => ['type' => 'VARCHAR', 'constraint' => 255],
             'stacks' => ['type' => 'VARCHAR', 'constraint' => 255],
             'createdDate' => ['type' => 'DATETIME', 'CURRENT_TIMESTAMP' => true],

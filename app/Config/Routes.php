@@ -50,6 +50,7 @@ $routes->put('templates/(:num)', 'TemplatesController::update/$1');
 $routes->delete('templates/(:num)', 'TemplatesController::delete/$1');
 $routes->get('templates/latest', 'TemplatesController::getLatest');
 $routes->get('templates/cart', 'TemplatesController::getCart');
+$routes->get('templates/assets_template', 'Templates::getTemplatesRoute');
 
 // Order
 $routes->post('order', 'OrderController::create');
