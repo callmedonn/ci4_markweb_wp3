@@ -26,20 +26,10 @@
           </button>
           <div class="lang-switcher-wrapper">
             <button class="lang-switcher transparent-btn" type="button">
-              EN
+              Logout
               <i data-feather="chevron-down" aria-hidden="true"></i>
             </button>
-            <ul class="lang-menu dropdown">
-              <li><a href="##">English</a></li>
-              <li><a href="##">French</a></li>
-              <li><a href="##">Uzbek</a></li>
-            </ul>
           </div>
-          <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-            <span class="sr-only">Switch theme</span>
-            <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-            <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-          </button>
           <div class="notification-wrapper">
             <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
               <span class="sr-only">To messages</span>
