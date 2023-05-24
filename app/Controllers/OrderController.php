@@ -24,8 +24,8 @@ class OrderController extends ResourceController
         $userModel = new UserModel();
         $templateModel = new TemplatesModel();
 
-                // Ambil parameter ID dari query string
-                $id_user = $this->request->getVar('id_user'); 
+        // Ambil parameter ID dari query string
+        $id_user = $this->request->getVar('id_user');
 
         // Mengambil data order dari tabel order
         $orders = $orderModel->where('id_user', $id_user)->findAll();
@@ -72,7 +72,7 @@ class OrderController extends ResourceController
         // Cari order berdasarkan ID
         $order = $orderModel->find($id);
 
-        
+
         if (!$order) {
             $response = [
                 'status' => false,
@@ -85,20 +85,20 @@ class OrderController extends ResourceController
         // Mempopulate data id_user dari tabel user
         $user = $userModel->find($order['id_user']);
         $order['id_user'] = $user; // Ganti dengan kolom yang sesuai dari tabel user
-                
+
         // Mengambil data id_template dalam bentuk string yang berisi ID
         $id_template = explode(',', $order['id_template']); // Jika id_template adalah string yang berisi ID yang dipisahkan koma
-            $templateNames = array();
-            foreach ($id_template as $id_template) {
-                 $template = $templateModel->find($id_template);
-                  if ($template) {
-                      $templateNames[] = $template; // Ganti dengan kolom yang sesuai dari tabel id_template
-                  }
+        $templateNames = array();
+        foreach ($id_template as $id_template) {
+            $template = $templateModel->find($id_template);
+            if ($template) {
+                $templateNames[] = $template; // Ganti dengan kolom yang sesuai dari tabel id_template
+            }
         }
 
         $order['id_template'] = $templateNames; // Menggabungkan nama template menjadi string yang dipisahkan koma
-                // Kembalikan response dengan data order yang telah dipopulasi
-                return $this->respond($order);
+        // Kembalikan response dengan data order yang telah dipopulasi
+        return $this->respond($order);
     }
 
     /**
@@ -152,28 +152,26 @@ class OrderController extends ResourceController
         }
 
         // Ubah array $id_template menjadi string dengan pemisah koma
-        $id_template = implode(',', json_decode($id_template)); 
+        $id_template = implode(',', json_decode($id_template));
 
         // Simpan order ke dalam database
         $data = [
-            'id_user' => (int)$id_user,
+            'id_user' => (int) $id_user,
             'id_template' => $id_template,
             // 'image' => $newName,
             'total' => $total,
-            'status' => $status,
+            'status' => $total == 0 ? 'success' : $status,
             'no_order' => $no_order
         ];
 
         $result = $orderModel->insert($data);
 
         // Kembalikan response 201 Created
-        return view('pages/payment/payment', ['status' => $status, 'total' => $total, 'idOrder' => $result]);
-
-        // } else {
-        //         // Tampilkan response gagal
-        // return $this->fail('Failed to create order.');
-        //     } 
-
+        if ($total == 0) {
+            return view('pages/payment/successPayment');
+        } else {
+            return view('pages/payment/payment', ['status' => $status, 'total' => $total, 'idOrder' => $result]);
+        }
     }
 
 
@@ -211,7 +209,7 @@ class OrderController extends ResourceController
         }
 
         // Validasi input
-        $validation =  \Config\Services::validation();
+        $validation = \Config\Services::validation();
         $validation->setRules([
             'status' => 'permit_empty',
         ]);
@@ -253,7 +251,7 @@ class OrderController extends ResourceController
             $image = $this->request->getFile('image');
             $newName = $image->getRandomName();
             $image->move(ROOTPATH . 'public/uploads', $newName);
-    
+
             // Mengupdate tabel 'order' dengan nama file yang baru
             $id = $this->request->getVar('id');
 

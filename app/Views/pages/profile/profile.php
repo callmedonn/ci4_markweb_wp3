@@ -66,8 +66,13 @@
                   <p class="fs-3 fw-bold">
                     <?= $template['title'] ?>
                   </p>
-                  <p class="fw-bold">Rp.
-                    <?= $template['price'] ?>
+                  <p class="fw-bold">
+                    <?php if ($template['price'] == 0): ?>
+                      Free
+                    <?php else: ?>
+                      Rp.
+                      <?= $template['price'] ?>
+                    <?php endif; ?>
                   </p>
                 </div>
                 <div class="d-flex align-items-center me-4">
