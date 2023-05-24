@@ -70,6 +70,9 @@ $routes->get('templates/checkout', 'TemplatesController::getCheckout');
 // Profile
 $routes->get('profile', 'Profile::index');
 
+// Admin
+$routes->get('dashboard', 'AdminController::index');
+
 
 /*
  * --------------------------------------------------------------------
