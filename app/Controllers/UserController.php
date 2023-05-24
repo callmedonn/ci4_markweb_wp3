@@ -9,7 +9,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 class UserController extends ResourceController
 {
     protected $modelName = 'App\Models\UserModel';
-    protected $format    = 'json';
+    protected $format = 'json';
     /**
      * Return an array of resource objects, themselves in array format
      *
@@ -122,6 +122,16 @@ class UserController extends ResourceController
         //
     }
 
+    // /**
+    //  * Delete the designated resource object from the model
+    //  *
+    //  * @return mixed
+    //  */
+    // public function delete($id = null)
+    // {
+    //     //
+    // }
+
     /**
      * Delete the designated resource object from the model
      *
@@ -129,6 +139,20 @@ class UserController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $model = $this->model;
+
+        // Ambil data user berdasarkan ID
+        $user = $model->find($id);
+
+        // Jika user tidak ditemukan, kembalikan response 404
+        if (!$user) {
+            return $this->respond(['message' => 'User not found'], 404);
+        }
+
+        // Hapus data user
+        $model->delete($id);
+
+        // Kembalikan response 200 dengan pesan sukses
+        return $this->respond(['message' => 'User deleted successfully']);
     }
 }

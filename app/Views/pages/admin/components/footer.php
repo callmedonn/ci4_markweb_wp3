@@ -27,6 +27,7 @@
   </footer>
   </div>
   </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Chart library -->
   <script src="<?= base_url('plugins/chart.min.js') ?> "></script>
   <!-- Icons library -->

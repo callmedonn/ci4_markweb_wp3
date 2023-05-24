@@ -9,7 +9,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 class TemplatesController extends ResourceController
 {
     protected $modelName = 'App\Models\TemplatesModel';
-    protected $format    = 'json';
+    protected $format = 'json';
     /**
      * Return an array of resource objects, themselves in array format
      *
@@ -24,10 +24,10 @@ class TemplatesController extends ResourceController
 
         // Lakukan pencarian data template berdasarkan keyword
         $templates = $model->like('title', $keyword)
-                    // ->orLike('description', $keyword)
-                    // ->orLike('price', $keyword)
-                    // ->orLike('link_download', $keyword)
-                    ->findAll();
+            // ->orLike('description', $keyword)
+            // ->orLike('price', $keyword)
+            // ->orLike('link_download', $keyword)
+            ->findAll();
 
         // Kembalikan response dengan data template hasil pencarian
         return $this->respond($templates);
@@ -99,13 +99,13 @@ class TemplatesController extends ResourceController
 
         // Validasi file gambar
         if ($image->isValid() && !$image->hasMoved()) {
-        // Pindahkan file ke direktori tujuan
-        $newName = $image->getRandomName();
-        $image->move(ROOTPATH . 'public/uploads', $newName);
+            // Pindahkan file ke direktori tujuan
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $newName);
 
-        // Pindahkan file ke direktori tujuan
-        $newNameLink = $link_download->getRandomName();
-        $link_download->move(ROOTPATH . 'public/uploads', $newNameLink);
+            // Pindahkan file ke direktori tujuan
+            $newNameLink = $link_download->getRandomName();
+            $link_download->move(ROOTPATH . 'public/uploads', $newNameLink);
 
             $templateModel = $this->model;
             $templateModel->insert([
@@ -116,13 +116,21 @@ class TemplatesController extends ResourceController
                 'image' => $newName,
                 'stacks' => $stacks,
             ]);
-    
+
             $response = [
                 'status' => true,
                 'message' => 'Template created successfully'
             ];
-    
-            return $this->respond($response, ResponseInterface::HTTP_CREATED);
+            $model = $this->model;
+
+            // Ambil parameter pencarian dari query string
+            $keyword = "";
+
+            // Lakukan pencarian data template berdasarkan keyword
+            $templates = $model->like('title', $keyword)
+                ->findAll();
+
+            return view('pages/admin/pagesAdmin/templates', ['templatesCount' => $this->model->countAll(), 'templates' => $templates]);
         }
     }
 
@@ -156,12 +164,12 @@ class TemplatesController extends ResourceController
         }
 
         // Validasi input
-        $validation =  \Config\Services::validation();
+        $validation = \Config\Services::validation();
         $validation->setRules([
             'title' => 'permit_empty',
             'description' => 'permit_empty',
             'price' => 'permit_empty|numeric',
-            'link_download' => 'permit_empty'
+            // 'link_download' => 'permit_empty'
         ]);
 
         // Cek apakah validasi berhasil
@@ -175,13 +183,25 @@ class TemplatesController extends ResourceController
             'title' => $this->request->getVar('title'),
             'description' => $this->request->getVar('description'),
             'price' => $this->request->getVar('price'),
-            'link_download' => $this->request->getVar('link_download')
+            // 'link_download' => $this->request->getVar('link_download')
         ];
 
         $templateModel->update($id, $data);
 
         // Kembalikan response 200 dengan pesan sukses
-        return $this->respond(['message' => 'Template updated successfully']);
+        // $templatesModel = new TemplatesModel();
+
+        $model = $this->model;
+
+        // Ambil parameter pencarian dari query string
+        $keyword = "";
+
+        // Lakukan pencarian data template berdasarkan keyword
+        $templates = $model->like('title', $keyword)
+            ->findAll();
+
+        return view('pages/admin/pagesAdmin/templates', ['templatesCount' => $this->model->countAll(), 'templates' => $templates]);
+
     }
 
     /**
@@ -230,7 +250,7 @@ class TemplatesController extends ResourceController
         $model = $this->model;
 
         // Ambil parameter ID dari query string
-        $ids = $this->request->getVar('ids'); 
+        $ids = $this->request->getVar('ids');
 
         // Pisahkan ID yang dikirimkan menjadi array
         $idArr = explode(',', $ids);
@@ -262,7 +282,7 @@ class TemplatesController extends ResourceController
         $model = $this->model;
 
         // Ambil parameter ID dari query string
-        $ids = $this->request->getVar('ids'); 
+        $ids = $this->request->getVar('ids');
 
         // Pisahkan ID yang dikirimkan menjadi array
         $idArr = explode(',', $ids);
@@ -277,16 +297,16 @@ class TemplatesController extends ResourceController
         }
         // return $this->respond($templates);
 
-                // Mendapatkan hasil id dalam $idArr
-                $resultIds = [];
-                foreach ($templates as $template) {
-                    $resultIds[] = $template['id'];
-                }
-        
+        // Mendapatkan hasil id dalam $idArr
+        $resultIds = [];
+        foreach ($templates as $template) {
+            $resultIds[] = $template['id'];
+        }
+
 
 
         // Kembalikan response dengan data templates dan total
         return view('pages/checkout/checkout', ['templates' => $templates, 'total' => $total, 'resultIds' => $resultIds]);
     }
-    
+
 }

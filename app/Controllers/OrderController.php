@@ -197,7 +197,6 @@ class OrderController extends ResourceController
      */
     public function update($id = null)
     {
-
         $orderModel = new OrderModel();
         // Ambil data order berdasarkan ID
 
@@ -228,7 +227,18 @@ class OrderController extends ResourceController
         $orderModel->update($id, $data);
 
         // Kembalikan response 200 dengan pesan sukses
-        return $this->respond(['message' => 'Template updated successfully']);
+        // return $this->respond(['message' => 'Template updated successfully']);
+        $ordersModel = new OrderModel();
+
+        $model = $ordersModel;
+
+        // Ambil parameter pencarian dari query string
+        $keyword = "";
+
+        // Lakukan pencarian data template berdasarkan keyword
+        $orders = $model->like('id_user', $keyword)->findAll();
+
+        return view('pages/admin/pagesAdmin/orders', ['ordersCount' => $ordersModel->countAll(), 'orders' => $orders]);
     }
 
 
@@ -239,7 +249,21 @@ class OrderController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $model = $this->model;
+
+        // Ambil data order berdasarkan ID
+        $order = $model->find($id);
+
+        // Jika order tidak ditemukan, kembalikan response 404
+        if (!$order) {
+            return $this->respond(['message' => 'Template not found'], 404);
+        }
+
+        // Hapus data order
+        $model->delete($id);
+
+        // Kembalikan response 200 dengan pesan sukses
+        return $this->respond(['message' => 'Template deleted successfully']);
     }
 
     /**

@@ -37,18 +37,22 @@
         <div class="sidebar-body">
           <ul class="sidebar-body-menu">
             <li>
-              <a class="active" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+              <a class="active" href="<?php echo base_url('/dashboard'); ?>"><span class="icon home"
+                  aria-hidden="true"></span>Dashboard</a>
             </li>
           </ul>
           <ul class="sidebar-body-menu">
             <li>
-              <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Templates</a>
+              <a href="<?php echo base_url('/admin/templates'); ?>"><span class="icon edit"
+                  aria-hidden="true"></span>Templates</a>
             </li>
             <li>
-              <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Orders</a>
+              <a href="<?php echo base_url('/admin/order'); ?>"><span class="icon edit"
+                  aria-hidden="true"></span>Orders</a>
             </li>
             <li>
-              <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Users</a>
+              <a href="<?php echo base_url('/admin/user'); ?>"><span class="icon edit"
+                  aria-hidden="true"></span>Users</a>
             </li>
             <li>
               <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>

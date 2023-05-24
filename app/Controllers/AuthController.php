@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 
 use App\Models\TemplatesModel;
 use App\Models\UserModel;
+use App\Models\OrderModel;
 
 
 class AuthController extends BaseController
@@ -14,7 +15,7 @@ class AuthController extends BaseController
      * index Login
      */
     public function index()
-    {    
+    {
         $message = null;
         return view('pages/auth/login', ['message' => $message]);
     }
@@ -23,7 +24,7 @@ class AuthController extends BaseController
      * register
      */
     public function register()
-    {    
+    {
         return view('pages/auth/register');
     }
 
@@ -51,14 +52,37 @@ class AuthController extends BaseController
             session()->setFlashdata('id', $user['id']);
             session()->setFlashdata('email', $user['email']);
             session()->setFlashdata('fullname', $user['fullname']);
+            session()->setFlashdata('role', $user['role']);
             session()->setFlashdata('username', $username);
-            
-            return view('pages/homepage/homepage', ['templates' => $templates]);
+
+            if ($user['role'] == 'admin') {
+                $userModel = new UserModel();
+                $templatesModel = new TemplatesModel();
+                $orderModel = new OrderModel();
+
+                return view('pages/admin/admin', ['user' => $userModel->countAll(), 'templates' => $templatesModel->countAll(), 'order' => $orderModel->countAll()]);
+            } else {
+                return view('pages/homepage/homepage', ['templates' => $templates]);
+            }
+
         } else {
             // Jika username atau password salah, alihkan kembali ke halaman login dengan pesan error
             // return redirect()->to('login')->with('error', 'Username or password is incorrect');
             $message = 'wrong username or password!';
             return view('pages/auth/login', ['message' => $message]);
         }
+    }
+
+    public function logout()
+    {
+        // Hapus data sesi pada logout
+        session()->remove('username');
+        session()->remove('fullname');
+        session()->remove('role');
+        session()->remove('email');
+        session()->remove('id');
+
+        // Redirect ke halaman utama setelah logout
+        return redirect()->to('/');
     }
 }

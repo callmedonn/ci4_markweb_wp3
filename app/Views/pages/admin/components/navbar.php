@@ -25,7 +25,7 @@
             <span class="icon menu-toggle--gray" aria-hidden="true"></span>
           </button>
           <div class="lang-switcher-wrapper">
-            <button class="lang-switcher transparent-btn" type="button">
+            <button class="lang-switcher transparent-btn" type="button" onclick="logout()">
               Logout
               <i data-feather="chevron-down" aria-hidden="true"></i>
             </button>
@@ -110,4 +110,28 @@
         </div>
       </div>
     </nav>
+    <script>
+      const logout = () => {
+        swal({
+          title: "Are you sure you want to logout?",
+          text: "Once logged out, you will not be able to recover your session!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+          .then((willLogout) => {
+            if (willLogout) {
+              swal("You have been logged out!", {
+                icon: "success",
+              })
+                .then(() => {
+                  // Redirect ke halaman logout di CodeIgniter
+                  window.location.href = "<?php echo site_url('logout'); ?>";
+                });
+            } else {
+              swal("Your session is safe!");
+            }
+          });
+      }
+    </script>
     <!-- ! Main -->

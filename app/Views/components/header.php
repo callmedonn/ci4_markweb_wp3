@@ -55,6 +55,7 @@
             <?php session()->keepFlashdata('username'); ?>
             <?php session()->keepFlashdata('email'); ?>
             <?php session()->keepFlashdata('fullname'); ?>
+            <?php session()->keepFlashdata('role'); ?>
           </li>
           </li>
         </ul>

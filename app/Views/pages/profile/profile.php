@@ -108,9 +108,39 @@
   <section class="mt-5">
     <div class="container d-flex justify-content-between">
       <div></div>
-      <button class="btn-custom-primary">Logout</button>
+      <button class="btn-custom-primary" onclick="logout()">Logout</button>
+
+      <!-- Form logout yang tersembunyi -->
+      <form id="logoutForm" method="post" style="display: none;">
+        <input type="hidden" name="logout" value="1">
+      </form>
     </div>
   </section>
+
+  <script>
+    const logout = () => {
+      swal({
+        title: "Are you sure you want to logout?",
+        text: "Once logged out, you will not be able to recover your session!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willLogout) => {
+          if (willLogout) {
+            swal("You have been logged out!", {
+              icon: "success",
+            })
+              .then(() => {
+                // Redirect ke halaman logout di CodeIgniter
+                window.location.href = "<?php echo site_url('logout'); ?>";
+              });
+          } else {
+            swal("Your session is safe!");
+          }
+        });
+    }
+  </script>
   <?= $this->include('components/footer') ?>
 
 </body>

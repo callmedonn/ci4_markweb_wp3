@@ -26,7 +26,9 @@
               <i data-feather="bar-chart-2" aria-hidden="true"></i>
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
+              <p class="stat-cards-info__num">
+                <?= $user ?>
+              </p>
               <p class="stat-cards-info__title">Total users</p>
             </div>
           </article>
@@ -37,7 +39,9 @@
               <i data-feather="file" aria-hidden="true"></i>
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
+              <p class="stat-cards-info__num">
+                <?= $templates ?>
+              </p>
               <p class="stat-cards-info__title">Total templates</p>
 
             </div>
@@ -49,7 +53,9 @@
               <i data-feather="file" aria-hidden="true"></i>
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
+              <p class="stat-cards-info__num">
+                <?= $order ?>
+              </p>
               <p class="stat-cards-info__title">Total orders</p>
             </div>
           </article>
