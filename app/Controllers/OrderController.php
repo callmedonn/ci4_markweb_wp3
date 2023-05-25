@@ -154,6 +154,11 @@ class OrderController extends ResourceController
         // Ubah array $id_template menjadi string dengan pemisah koma
         $id_template = implode(',', json_decode($id_template));
 
+        // Generate kode unik dengan panjang 8 karakter
+        $code = $this->generateCode(8);
+
+        $codeNoOrder = "ORD" . $code;
+
         // Simpan order ke dalam database
         $data = [
             'id_user' => (int) $id_user,
@@ -161,7 +166,7 @@ class OrderController extends ResourceController
             // 'image' => $newName,
             'total' => $total,
             'status' => $total == 0 ? 'success' : $status,
-            'no_order' => $no_order
+            'no_order' => $codeNoOrder
         ];
 
         $result = $orderModel->insert($data);
@@ -172,6 +177,17 @@ class OrderController extends ResourceController
         } else {
             return view('pages/payment/payment', ['status' => $status, 'total' => $total, 'idOrder' => $result]);
         }
+    }
+
+    private function generateCode($length = 8)
+    {
+        $code = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $code .= random_int(0, 9);
+        }
+
+        return $code;
     }
 
 
