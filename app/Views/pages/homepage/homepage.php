@@ -20,7 +20,7 @@
   <!-- Header Start -->
   <div class="jumbotron jumbotron-homepage">
     <div class="container pt-5 pb-5 d-flex justify-content-between">
-      <div class="jb-sc-1" data-aos="fade-right" data-aos-duration="3000">
+      <div class="jb-sc-1" data-aos="fade-right" data-aos-duration="1500">
         <p class="lead">Bangun Website Professional</p>
         <h1>Solusi Mudah untuk Membuat <br />Website berkualitas</h1>
         <p class="mt-4">Kami Menyediakan Layanan Pembuatan Website dan Penyedia Template Berkualitas Tinggi untuk Bisnis
@@ -29,7 +29,7 @@
           <a class="btn-custom-white text-decoration-none" href="<?php echo base_url('/price'); ?>">Lihat Penawaran</a>
         </p>
       </div>
-      <div class="jb-sc-1" data-aos="fade-left" data-aos-duration="3000">
+      <div class="jb-sc-1" data-aos="fade-left" data-aos-duration="1500">
         <img src="<?= base_url('images/img_header.png') ?>" alt="img_header" width="400" />
       </div>
     </div>
@@ -41,28 +41,28 @@
   <!-- Section 1 Start -->
   <section class="mb-5">
     <div class="container">
-      <h6 class="title-section" data-aos="fade-up" data-aos-duration="2000">Mengapa Harus di MARKWEB?</h6>
+      <h6 class="title-section" data-aos="fade-up" data-aos-duration="1500">Mengapa Harus di MARKWEB?</h6>
       <h4 data-aos="fade-up">Meningkatkan Fungsi Website Bisnis Anda dengan Fitur dari Jasa Kami</h4>
       <div class="row mt-5">
-        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="2000">
+        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="1500">
           <img src="<?= base_url('images/design_pro.png') ?>" alt="design" width="100" />
           <h6 class="fw-bold mt-2">Desain profesional</h6>
           <p class="p-0 m-0">Jasa website dan template yang berkualitas akan memberikan desain yang profesional dan
             menarik untuk website bisnis Anda.</p>
         </div>
-        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="2000">
+        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="1500">
           <img src="<?= base_url('images/mobile_friend.png') ?>" alt="design" width="45" />
           <h6 class="fw-bold mt-2">Mobile Friendly</h6>
           <p class="p-0 m-0">Responsife pada semua perangkat, termasuk desktop, tablet, dan ponsel, sehingga memastikan
             pengunjung situs dapat mengakses situs dengan mudah.</p>
         </div>
-        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="2000">
+        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="1500">
           <img src="<?= base_url('images/seo_friend.png') ?>" alt="design" width="65" />
           <h6 class="fw-bold mt-2">SEO-friendly</h6>
           <p class="p-0 m-0">Jasa pembuatan website yang baik akan memastikan bahwa website Anda ramah SEO, sehingga
             meningkatkan peringkat website Anda pada hasil pencarian.</p>
         </div>
-        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="2000">
+        <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-duration="1500">
           <img src="<?= base_url('images/support_live.png') ?>" alt="design" width="65" />
           <h6 class="fw-bold mt-2">Dukungan deploy</h6>
           <p class="p-0 m-0">website yang telah dibangun akan di bantu oleh tim kami untuk proses deploy, seperti
@@ -76,11 +76,11 @@
   <!-- Section 2 Start -->
   <section class="mt-5 section-2">
     <div class="container">
-      <h6 class="title-section" data-aos="fade-right" data-aos-duration="2000">Template Website</h6>
-      <h4 data-aos="fade-right" data-aos-duration="2000">Temukan Template Website Terbaik untuk Bisnis Anda</h4>
+      <h6 class="title-section" data-aos="fade-right" data-aos-duration="1500">Template Website</h6>
+      <h4 data-aos="fade-right" data-aos-duration="1500">Temukan Template Website Terbaik untuk Bisnis Anda</h4>
       <div class="row mt-4">
         <?php foreach ($templates as $template): ?>
-          <div class="col-md-6" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="col-md-6" data-aos="zoom-in" data-aos-duration="1500">
             <div class="card-custom-sc-6">
               <div class="p-10 d-flex justify-content-center sc-cst">
                 <img src="<?= base_url('uploads/' . $template['image']) ?>" alt="img_web" width="60%">
@@ -116,7 +116,7 @@
       </div>
     </div>
     </div>
-    <div class="d-flex justify-content-center mt-5 mb-5" data-aos="fade-up" data-aos-duration="2000">
+    <div class="d-flex justify-content-center mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
       <a href="<?php echo base_url('/templates'); ?>" class="btn-custom-primary text-decoration-none">Tampilkan
         Lebih</a>
     </div>
@@ -126,12 +126,12 @@
   <!-- Section 3 Start -->
   <section class="mt-5 section-3">
     <div class="container">
-      <h6 class="title-section" data-aos="fade-right" data-aos-duration="2000">Paket Pembuatan Website</h6>
-      <h4 data-aos="fade-right" data-aos-duration="2000">Temukan Paket Pembuatan Website yang Sesuai dengan Bisnis Anda
+      <h6 class="title-section" data-aos="fade-right" data-aos-duration="1500">Paket Pembuatan Website</h6>
+      <h4 data-aos="fade-right" data-aos-duration="1500">Temukan Paket Pembuatan Website yang Sesuai dengan Bisnis Anda
       </h4>
 
       <div class="row d-flex justify-content-between mt-4">
-        <div class="p-4 cnt-sc-3" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
+        <div class="p-4 cnt-sc-3" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
           <h5 class="text-center">Basic</h5>
           <p class="text-center m-0 p-0">Landing page</p>
           <h2 class="text-center mt-4 mb-4">Rp. 600.000</h2>
@@ -182,7 +182,7 @@
             </li>
           </ul>
         </div>
-        <div class="p-4 cnt-sc-3" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
+        <div class="p-4 cnt-sc-3" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
           <h5 class="text-center">Intermediate</h5>
           <p class="text-center m-0 p-0">Company Profile / Komunitas</p>
           <h2 class="text-center mt-4 mb-4">Rp. 1.900.000</h2>
@@ -235,7 +235,7 @@
           </ul>
         </div>
         <div class="p-4 cnt-sc-3 mb-5" data-aos="fade-left" data-aos-anchor-placement="top-bottom"
-          data-aos-duration="2000">
+          data-aos-duration="1500">
           <h5 class="text-center">Advanced</h5>
           <p class="text-center m-0 p-0">Toko Online / Blog</p>
           <h2 class="text-center mt-4 mb-4">Rp. 2.500.000</h2>
@@ -306,7 +306,7 @@
   <!-- Section 4 Start -->
   <div class="jumbotron jumbotron-fluid mt-5 jumbotron-consultant">
     <div class="container d-flex justify-content-between align-items-center">
-      <div class="bg-sc-1" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-duration="2500">
+      <div class="bg-sc-1" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
         <h4>Konsultasi Pembuatan Website Anda bersama <span class="cl-prm">MarkWeb</span></h4>
         <p>konsultasi bersama tim kami untuk menentukan solusi terbaik dalam membuat website. Hubungi kami sekarang
           untuk memulai langkah pertama meningkatkan online bisnis Anda.</p>
@@ -314,7 +314,7 @@
           href="https://wa.me/083872239021/?text=Halo%20Kami%20dari%20tim%20MarkWeb%20ada%20yang%20bisa%20saya%20bantu%3F"
           target="_blank" style="cursor:pointer;">Konsultasi sekarang</a>
       </div>
-      <div class="bg-sc-1" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-duration="2500">
+      <div class="bg-sc-1" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
         <img src="<?= base_url('images/technic.png') ?>" alt="technic" width="500">
       </div>
     </div>
