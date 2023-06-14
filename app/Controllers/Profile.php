@@ -11,17 +11,17 @@ use App\Models\UserModel;
 class Profile extends BaseController
 {
     public function index()
-    { 
+    {
         $orderModel = new OrderModel();
         $userModel = new UserModel();
         $templateModel = new TemplatesModel();
 
-                // Ambil parameter ID dari query string
-                // $id_user = $this->request->getVar('id_user'); 
-                $id_user = session()->getFlashData('id');
+        // Ambil parameter ID dari query string
+        // $id_user = $this->request->getVar('id_user'); 
+        $id_user = session()->getFlashData('id');
 
         // Mengambil data order dari tabel order
-        $orders = $orderModel->where('id_user', $id_user)->findAll();
+        $orders = $orderModel->where('id_user', $id_user)->orderBy('createdDate', 'desc')->findAll();
 
         $templateOrder = array();
         // Loop melalui setiap order

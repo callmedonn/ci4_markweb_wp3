@@ -45,7 +45,7 @@
           <p>Tidak ditemukan hasil pencarian.</p>
         <?php else: ?>
           <?php foreach ($templates as $template): ?>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-5">
               <div class="card-custom-sc-6">
                 <div class="p-10 d-flex justify-content-center sc-cst">
                   <img src="<?= base_url('uploads/' . $template['image']) ?>" alt="img_web" width="90%">

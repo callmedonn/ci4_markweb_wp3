@@ -28,6 +28,7 @@ class AdminController extends BaseController
 
         // Lakukan pencarian data template berdasarkan keyword
         $templates = $model->like('title', $keyword)
+            ->orderBy('createdDate', 'desc')
             ->findAll();
 
         return view('pages/admin/pagesAdmin/templates', ['templatesCount' => $templatesModel->countAll(), 'templates' => $templates]);
@@ -69,7 +70,9 @@ class AdminController extends BaseController
         $keyword = "";
 
         // Lakukan pencarian data template berdasarkan keyword
-        $users = $model->like('username', $keyword)->findAll();
+        $users = $model->like('username', $keyword)
+            ->orderBy('createdDate', 'desc')
+            ->findAll();
 
         return view('pages/admin/pagesAdmin/users', ['usersCount' => $usersModel->countAll(), 'users' => $users]);
     }
@@ -83,7 +86,9 @@ class AdminController extends BaseController
         $keyword = "";
 
         // Lakukan pencarian data template berdasarkan keyword
-        $orders = $model->like('id_user', $keyword)->findAll();
+        $orders = $model->like('id_user', $keyword)
+            ->orderBy('createdDate', 'desc')
+            ->findAll();
 
         return view('pages/admin/pagesAdmin/orders', ['ordersCount' => $ordersModel->countAll(), 'orders' => $orders]);
     }
