@@ -37,6 +37,7 @@ class Profile extends BaseController
                 $template = $templateModel->find($id_template);
                 if ($template) {
                     $customTemplate = $template;
+                    $customTemplate['no_order'] = $order['no_order'];
                     $customTemplate['status'] = $order['status'];
                     $templateNames[] = $template; // Ganti dengan kolom yang sesuai dari tabel id_template
                     $templateOrder[] = $customTemplate; // Ganti dengan kolom yang sesuai dari tabel id_template

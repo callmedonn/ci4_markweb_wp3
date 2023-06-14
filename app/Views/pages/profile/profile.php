@@ -60,7 +60,8 @@
               <img class="ms-3" src="<?= base_url('uploads/' . $template['image']) ?>" alt="imgweb" width="200" />
               <div class="d-flex justify-content-between flex-row ms-3" style="width: 100%">
                 <div class="d-flex flex-column">
-                  <p class="fw-bold">
+                  <p class="fw-bold text-uppercase">
+                    <?= $template['no_order'] ?> -
                     <?= $template['status'] ?>
                   </p>
                   <p class="fs-3 fw-bold">
