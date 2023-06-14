@@ -14,8 +14,8 @@
     <div class="container footer--flex">
       <div class="footer-start">
         <p>
-          2021 © Elegant Dashboard -
-          <a href="elegant-dashboard.com" target="_blank" rel="noopener noreferrer">elegant-dashboard.com</a>
+          2023 © MarkWeb -
+          <a href="elegant-dashboard.com" target="_blank" rel="noopener noreferrer">markweb-dashboard</a>
         </p>
       </div>
       <ul class="footer-end">
