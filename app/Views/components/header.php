@@ -26,10 +26,10 @@
             <a class="nav-link fw-bold" href="<?php echo base_url('price'); ?>">Harga</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tentang</a>
+            <a class="nav-link fw-bold" href="<?php echo base_url('about'); ?>">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Portofolio</a>
+            <a class="nav-link fw-bold" href="<?php echo base_url('portfolio'); ?>">Portofolio</a>
           </li>
         </ul>
       </div>

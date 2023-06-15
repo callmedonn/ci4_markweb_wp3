@@ -105,8 +105,8 @@
                 <tr>
                   <td>
                     <div style="background-color: #0061f7; padding:10px; display:flex; justify-content: center;">
-                      <a href="<?= base_url('images/bukti_tf.jpg') ?>" target="_blank">
-                        <img src="<?= base_url('images/bukti_tf.jpg') ?>" alt="img_web" width="100">
+                      <a href="<?= base_url('uploads/' . $order['image']) ?>" target="_blank">
+                        <img src="<?= base_url('uploads/' . $order['image']) ?>" alt="img_web" width="100">
                       </a>
                     </div>
                   </td>

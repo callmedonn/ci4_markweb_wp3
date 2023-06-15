@@ -72,6 +72,12 @@ $routes->get('logout', 'AuthController::logout');
 // Checkout
 $routes->get('templates/checkout', 'TemplatesController::getCheckout');
 
+// About
+$routes->get('about', 'About::index');
+
+// Portfolio
+$routes->get('portfolio', 'Portfolio::index');
+
 // Profile
 $routes->get('profile', 'Profile::index');
 
